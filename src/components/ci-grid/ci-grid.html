@@ -17,9 +17,9 @@
             <td data-bind="text: changeList"></td>
             <td data-bind="text: owner"></td>
             <td data-bind="text: startedTime"></td>
-            <td data-bind="text: build"></td>
-            <td data-bind="text: unitTest"></td>
-            <td data-bind="text: functionalTest"></td>
+            <td data-bind="css: buildSteps.build"></td>
+            <td data-bind="css: buildSteps.unitTest"></td>
+            <td data-bind="css: buildSteps.functionalTest"></td>
             <td data-bind="text: status>
         </tr>
     </tbody>

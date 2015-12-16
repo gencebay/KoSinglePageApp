@@ -4,14 +4,11 @@ var app = express();
 
 app.set('port', (process.env.PORT || 5001));
 
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/src'));
 
 app.get('/api/items', function(req, res){
-    var obj;
-    fs.readFile(__dirname + '/data/data.json', 'utf8', function (err, data) {
-        if (err) throw err;
-        obj = JSON.parse(data);
-    });
+    var dataFilePath = __dirname + '/data/data.json';
+    var obj = JSON.parse(fs.readFileSync(dataFilePath, 'utf8'));
     res.json(obj);
 });
 
