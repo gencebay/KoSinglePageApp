@@ -1,3 +1,26 @@
-<h2>ci-grid</h2>
 
-<p data-bind='text: message'></p>
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th>Changelist</th>
+            <th>Owner</th>
+            <th>Time Started</th>
+            <th>Build</th>
+            <th>Unit Test</th>
+            <th>Build</th>
+            <th>Functional Test</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: items">
+        <tr>
+            <td data-bind="text: changeList"></td>
+            <td data-bind="text: owner"></td>
+            <td data-bind="text: startedTime"></td>
+            <td data-bind="text: build"></td>
+            <td data-bind="text: unitTest"></td>
+            <td data-bind="text: functionalTest"></td>
+            <td data-bind="text: status>
+        </tr>
+    </tbody>
+</table>

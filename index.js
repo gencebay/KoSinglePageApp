@@ -1,3 +1,4 @@
+var fs = require('fs');
 var express = require('express');
 var app = express();
 
@@ -5,8 +6,13 @@ app.set('port', (process.env.PORT || 5001));
 
 app.use(express.static(__dirname + '/dist'));
 
-app.get('/api/list', function(req, res){
-    res.json({id: '1', message: 'Server json result'});
+app.get('/api/items', function(req, res){
+    var obj;
+    fs.readFile(__dirname + '/data/data.json', 'utf8', function (err, data) {
+        if (err) throw err;
+        obj = JSON.parse(data);
+    });
+    res.json(obj);
 });
 
 app.listen(app.get('port'), function() {

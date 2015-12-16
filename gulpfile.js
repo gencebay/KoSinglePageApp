@@ -20,6 +20,7 @@ var requireJsRuntimeConfig = vm.runInNewContext(fs.readFileSync('src/app/require
             'requireLib',
             'components/nav-bar/nav-bar',
             'components/home-page/home',
+            'components/ci-grid/ci-grid',
             'text!components/about-page/about.html'
         ],
         insertRequire: ['app/startup'],
@@ -59,9 +60,14 @@ gulp.task('html', function() {
         .pipe(gulp.dest('./dist/'));
 });
 
+// dev server
+gulp.task('serve:src', function() {
+    return connect.server({ root: './src', port: 5002 });
+});
+
 // After building, starts a trivial static file server
 gulp.task('serve:dist', ['default'], function() {
-    return connect.server({ root: './dist', port: 5002 });
+    return connect.server({ root: './dist', port: 5001 });
 });
 
 // Removes all files from ./dist/
