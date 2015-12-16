@@ -9,6 +9,8 @@ define(['jquery', 'knockout', './router', 'bootstrap', 'knockout-projections'], 
     template: { require: 'text!components/about-page/about.html' }
   });
 
+  ko.components.register('ci-grid', { require: 'components/ci-grid/ci-grid' });
+
   // [Scaffolded component registrations will be inserted here. To retain this feature, don't remove this comment.]
 
   // Start the application

@@ -1,41 +1,15 @@
-var connect = require('connect')
-var http = require('http')
+var express = require('express');
+var app = express();
 
-var app = connect()
+app.set('port', (process.env.PORT || 5001));
 
-// gzip/deflate outgoing responses
-var compression = require('compression')
-app.use(compression())
+app.use(express.static(__dirname + '/dist'));
 
-// store session state in browser cookie
-var cookieSession = require('cookie-session')
-app.use(cookieSession({
-    keys: ['secret1', 'secret2']
-}))
-
-// parse urlencoded request bodies into req.body
-var bodyParser = require('body-parser')
-app.use(bodyParser.urlencoded())
-
-app.use(connect.directory('./dist'));
-
-app.use(function middleware1(req, res, next) {
-    // middleware 1
-    next();
-});
-app.use(function middleware2(req, res, next) {
-    // middleware 2
-    next();
+app.get('/api/list', function(req, res){
+    res.json({id: '1', message: 'Server json result'});
 });
 
-app.use('/foo', function fooMiddleware(req, res, next) {
-    // req.url starts with "/foo"
-    next();
+app.listen(app.get('port'), function() {
+    console.log('Node app is running on port', app.get('port'));
 });
 
-app.use(function onerror(err, req, res, next) {
-    // an error occurred!
-});
-
-//create node.js http server and listen on port
-http.createServer(app).listen(5001)

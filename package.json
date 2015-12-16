@@ -6,9 +6,10 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "body-parser": "^1.14.1",
-    "connect": "^3.4.0",
-    "cookie-session": "^2.0.0-alpha.1"
+    "express": "^4.13.3"
+  },
+  "engines": {
+    "node": "0.12.2"
   },
   "devDependencies": {
     "body-parser": "^1.14.1",
@@ -33,9 +34,6 @@
     "karma-requirejs": "^0.2.1",
     "requirejs": "^2.1.11"
   },
-  "engines": {
-    "node": "0.12.2"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/gencebay/kosinglepageapp"
@@ -43,7 +41,7 @@
   "keywords": [
     "node",
     "knockout",
-    "connect"
+    "express"
   ],
   "license": "MIT"
 }
