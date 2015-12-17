@@ -7,7 +7,6 @@
             <th>Time Started</th>
             <th>Build</th>
             <th>Unit Test</th>
-            <th>Build</th>
             <th>Functional Test</th>
             <th>Status</th>
         </tr>
@@ -17,10 +16,10 @@
             <td data-bind="text: changeList"></td>
             <td data-bind="text: owner"></td>
             <td data-bind="text: startedTime"></td>
-            <td data-bind="css: buildSteps.build"></td>
-            <td data-bind="css: buildSteps.unitTest"></td>
-            <td data-bind="css: buildSteps.functionalTest"></td>
-            <td data-bind="text: status>
+            <td data-bind="text: buildSteps.build.value"></td>
+            <td data-bind="text: buildSteps.unitTest.value"></td>
+            <td data-bind="text: buildSteps.functionalTest.value"></td>
+            <td data-bind="text: status"></td>
         </tr>
     </tbody>
 </table>
