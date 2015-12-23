@@ -2,6 +2,7 @@
 .idea/
 node_modules/
 bower_modules/
+vendor/
 
 # Don't track build output
 dist/
